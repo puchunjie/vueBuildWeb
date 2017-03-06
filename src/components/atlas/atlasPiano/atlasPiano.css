@@ -1,0 +1,33 @@
+.atlasPiano {
+    position: absolute;
+}
+.atlasPiano .atlasPiano-wrap {
+    width:100%;
+    height:100%;
+    position: relative;
+    overflow: hidden;
+}
+.atlasPiano .atlasPiano-wrap .item{
+    height:100%;
+    position:absolute;
+    background-size:cover;
+    cursor:pointer;
+    top:0;
+    left:0;
+}
+.atlasPiano .atlasPiano-wrap .item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.atlasPiano .atlasPiano-wrap .item img {
+    width: 100%;
+}
+.atlasPiano .atlasPiano-wrap .item span {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left:0;
+    background-color: #000;
+}

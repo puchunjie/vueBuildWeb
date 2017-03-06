@@ -1,0 +1,92 @@
+.list-content ul {
+    margin: 0;
+    padding: 0;
+}
+
+.drag-palcehold {
+    width: 163px;
+    height: 43px;
+    text-align: center;
+    color: #fff;
+    font: 400 14px/40px "微软雅黑";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -21px 0 0 -82px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #3D6FC1;
+}
+
+.drag-setting {
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+    display: none;
+}
+
+.drag-setting li {
+    padding: 5px;
+    height: 20px;
+    line-height: 10px;
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid #6da4cd;
+    color: #6da4cd;
+    background-color: #e8f5fd;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.drag-setting li:hover{
+    background-color: #4492fb;
+    border-color: #006cff;
+    color: #fff;
+}
+
+.tuDragSetting{
+    top: 5px;
+}
+/*通栏设置*/
+.tuBannerSetting {
+    bottom: 5px;
+}
+
+.tuBannerSetting li {
+    padding: 5px;
+    height: 20px;
+    line-height: 10px;
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid #6da4cd;
+    color: #6da4cd;
+    background-color: #e8f5fd;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.tuBannerSetting li:hover{
+    background-color: #4492fb;
+    border-color: #006cff;
+    color: #fff;
+}
+/*设置框*/
+.banner-set-box{
+
+}
+
+
+/*框选样式*/
+.tempDiv,.retc{
+    border:1px dashed blue;
+    background:#5a72f8;
+    position:absolute;
+    width:0;
+    height:0;
+    filter:alpha(opacity:10);
+    opacity:0.1;
+    z-index: 999;
+}
+.group-module{
+    border:1px solid #000!important;
+}

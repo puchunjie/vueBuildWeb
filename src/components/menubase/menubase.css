@@ -1,0 +1,35 @@
+
+.menu:after,.menu ul:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden;
+}
+.menu>ul>li{
+    float: left;
+}
+.menu .nav1_ename{
+    margin: 0;
+    padding: 0;
+}
+.moveFloat {
+    background: #eee;
+    position:relative;
+    width: 100%;
+    }
+.menu li .ul2{
+    min-width: 100%;
+    display: none;
+}
+.menu li:hover .ul2{
+    display: block;
+}
+.menu li p{
+    margin: 0;
+    padding: 0;
+}
+.menu.move{
+    cursor: move;
+}

@@ -1,0 +1,86 @@
+.atlasY-module {
+    position: absolute;
+    cursor:move
+}
+.atlasY-module .atlas-slide {
+    overflow: hidden;
+    height: 100%;
+}
+.atlasY-module .atlas-slide .tempWrap {
+    height: 100%;
+    overflow: hidden;
+}
+.atlasY-module .atlas-slide ul {
+    height:100%
+}
+.atlasY-module .atlas-slide li {
+    width: 100%
+}
+.atlasY-module .atlas-slide li a {
+    display: block;
+    width:100%;
+    height:100%;
+    position: relative;
+    overflow: hidden
+}
+.atlasY-module .atlas-slide img {
+    width:100%;
+}
+.atlasY-module .atlas-slide li a p {
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    overflow: hidden;
+    line-height: 2;
+    transition: all ease-in-out 0.3s
+}
+.atlasY-module .btn {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    left: 50%;
+    margin-left:-25px;
+    cursor: pointer;
+
+}
+.atlasY-module .prev {
+    bottom: -70px
+}
+.atlasY-module .next {
+    top: -70px
+}
+
+.atlasY-module .prev-in {
+    bottom: 10px
+}
+
+.atlasY-module .next-in {
+    top: 10px
+}
+.atlasY-module .prev-out {
+    bottom: -70px
+}
+
+.atlasY-module .next-out {
+    top: -70px
+}
+.atlasY-module .atlas-slide li a p.atlas-slide-title-all {
+    height: 100%;
+    bottom:-100%;
+    font-size: 0!important;
+    
+}
+.atlasY-module .atlas-slide li:hover a p.atlas-slide-title-all {
+    bottom:0;  
+}
+.atlasY-module .atlas-slide li a p.atlas-slide-title-local {
+    bottom:-100%
+}
+.atlasY-module .atlas-slide li:hover a p.atlas-slide-title-local {
+    bottom:0;
+}
+
+
+

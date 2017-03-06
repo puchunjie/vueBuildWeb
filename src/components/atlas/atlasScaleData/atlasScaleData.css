@@ -1,0 +1,78 @@
+.atlasScale-module{
+    width: 540px;
+    position: absolute;
+}
+.atlasScale-module .scale{
+    position: absolute;
+    overflow: hidden;
+}
+.atlasScale-module .scale ul{
+    overflow: hidden;
+    position: relative;
+}
+.atlasScale-module .item{
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+.atlasScale-module .cover{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    opacity: 0.3;
+    background: #fff;
+    transition: all ease-in-out 0.3s;
+    -webkit-transition: all ease-in-out 0.3s;
+    -moz-transition: all ease-in-out 0.3s;
+    -o-transition: all ease-in-out 0.3s;
+}
+.atlasScale-module .item:hover .cover,
+.atlasScale-module .item.on .cover {
+    opacity: 0;
+}
+.atlasScale-module .item>div{
+    width:100%;
+    height:100%;
+    overflow: hidden
+}
+.atlasScale-module .item img{
+    width: 100%;
+    display: block;
+}
+.atlasScale-module .pic{
+    position: absolute;
+    overflow: hidden;
+    /*left: 0;
+    right: 0;
+    bottom: 66px;
+    top:0;*/
+}
+.atlasScale-module .title{
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    text-indent: 10px;
+}
+.atlasScale-module .pic img{
+    width: 100%;
+    display: block;
+}
+.atlasScale-module .btn{
+    /*width: 26px;
+    top:14px;
+    height: 30px;*/
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+}
+/*.atlasScale-module .prev{
+    left: 0;
+}
+.atlasScale-module .next{
+    right: 0;
+}*/

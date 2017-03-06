@@ -1,0 +1,96 @@
+.product-module {
+    position: absolute;
+}
+.product-module .product-wrap {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.product-module .item {
+    float: left;
+}
+.product-module .item a{
+    display: block;
+    width:100%;
+    cursor:pointer;
+    position: relative;
+    overflow: hidden;
+}
+.product-module .covers .item a .cover {
+    position: absolute;
+    width:100%;
+    height: 100%;
+    top:0;
+    left:0;
+    display: none;
+}
+.product-module .covers .item a:hover .cover {
+    display: block;
+}
+.product-module .titleCover .textBox {
+    position: absolute;
+    width:100%;
+    bottom: -100%;
+    left:0;
+    transition: all ease-in-out 0.3s;
+}
+.product-module .titleCover .item:hover .textBox {
+    bottom:0;
+}
+.product-module .item .imgBox {
+    width:100%;
+}
+.product-module .item .imgBox {
+    background: #f1f1f1;
+    position: relative;
+}
+.product-module .item .imgBox span {
+    display: block;
+    width:100%;
+    font-size: 14px;
+    text-align: center;
+    height:20px;
+    line-height: 20px;
+    position: absolute;
+    top:50%;
+    margin-top: -10px;
+}
+.product-module .item img {
+    width:100%;
+    height:100%;
+    vertical-align: bottom;
+}
+
+.product-module .price {
+    display: block;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap
+}
+.product-module .addItem {
+    background: #ccc;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

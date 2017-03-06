@@ -1,0 +1,36 @@
+.blank-module {
+    display: block;
+    position: absolute;
+}
+
+.blank-module img {
+    width: 100%;
+    height: auto;
+}
+
+.blank-module span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.blankImg {
+    display: block
+}
+
+.blankImg_hover {
+    display: none
+}
+.blank-after:after{
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    right: 5px;
+    bottom:5px;
+    border:1px solid #fff;
+}
+.blank-module .move{
+    cursor: move;
+}

@@ -1,0 +1,36 @@
+.picture-module {
+    display: block;
+    position: absolute;
+}
+
+.picture-module img {
+    width: 100%;
+    height: auto;
+}
+
+.picture-module span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.pictureImg {
+    display: block
+}
+
+.pictureImg_hover {
+    display: none
+}
+.picture-after:after{
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    right: 5px;
+    bottom:5px;
+    border:1px solid #fff;
+}
+.picture-module .move{
+    cursor: move;
+}

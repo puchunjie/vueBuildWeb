@@ -1,0 +1,84 @@
+.atlasX-module {
+    position: absolute;
+    cursor:move
+}
+.atlasX-module .atlas-slide {
+    overflow: hidden;
+    height: 100%;
+}
+.atlasX-module .atlas-slide .tempWrap {
+    height: 100%;
+    overflow: hidden;
+}
+.atlasX-module .atlas-slide ul {
+    height:100%
+}
+.atlasX-module .atlas-slide li {
+    height:100%;
+    float: left;
+}
+.atlasX-module .atlas-slide li a {
+    display: block;
+    width:100%;
+    height:100%;
+    position: relative;
+    overflow: hidden
+}
+.atlasX-module .atlas-slide img {
+    width:100%;
+}
+.atlasX-module .atlas-slide li a p {
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    line-height: 2;
+    transition: all ease-in-out 0.3s;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.atlasX-module .btn {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: 50%;
+    margin-top:-25px;
+    cursor: pointer;
+}
+.atlasX-module .prev {
+    right: -70px
+}
+.atlasX-module .next {
+    left: -70px
+}
+.atlasX-module .prev-in {
+    right: 10px
+}
+.atlasX-module .next-in {
+    left: 10px
+}
+.atlasX-module .prev-out {
+    right: -70px
+}
+.atlasX-module .next-out {
+    left: -70px
+}
+.atlasX-module .atlas-slide li a p.atlas-slide-title-all {
+    height: 100%;
+    bottom:-100%;
+    font-size: 0!important;
+}
+.atlasX-module .atlas-slide li:hover a p.atlas-slide-title-all {
+    bottom:0;  
+}
+.atlasX-module .atlas-slide li a p.atlas-slide-title-local {
+    bottom:-100%
+}
+.atlasX-module .atlas-slide li:hover a p.atlas-slide-title-local {
+    bottom:0;
+}
+
+
+
