@@ -30,8 +30,9 @@
                             <div class="el-dragger__text">将文件拖到此处，或<em>点击上传</em></div>
                         </el-upload>
                         <ul class="upload-select clearfix userImg" v-if="fileList.list.length!=0">
-                            <li v-for="(item,index) in fileList.list" :class="activeImg === item.path?'active':''" @click="itemActive(item.path)">
-                                <img :src="item.path" :alt="item.name">
+                            <li v-for="(item,index) in fileList.list" :class="{'active':activeImg == item.path}" 
+                            @click="itemActive(item.path)" :id="index">
+                                  <img  :src="item.path" :alt="item.name">
                             </li>
                         </ul>
                         <el-pagination class="text-right"
@@ -61,7 +62,7 @@
                 <div class="imgUploadBox-right" :class="{'sys':!isUser}">
                     <div class="no-pic" v-if="sysPicList.list.length==0"><i class="el-icon-picture"></i><p>暂无图片</p></div>
                     <ul class="upload-select clearfix" v-if="sysPicList.list.length>0">
-                        <li v-for="(item,index) in sysPicList.list" :class="activeImg === item.path?'active':''" @click="itemActive(item.path)">
+                        <li v-for="(item,index) in sysPicList.list" :class="{'active':activeImg === item.path}" @click="itemActive(item.path)">
                             <img :src="item.path" :alt="item.name">
                         </li>
                     </ul>
@@ -329,6 +330,7 @@
                 this.activeImg = path;
             },
             doSelect() {
+                console.log(this.activeImg)
                 if (this.activeImg != "") {
                     if (this.imgUpload.mode === "module") {
                         this.modifyModuleImg({

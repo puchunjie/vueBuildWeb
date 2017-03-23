@@ -41,6 +41,7 @@
     import atlasPianoTools from 'components/atlas/atlasPiano/tools.js';
     import horizontallineTools from 'components/line/horizontalline/tools.js';
     import verticallineTools from 'components/line/verticalline/tools.js';
+    import mapViewTools from 'components/map/tools.js';
     import setLevel from 'setLevel';
     export default {
         name: 'toolbar',
@@ -154,7 +155,8 @@
                     product: productTools,
                     atlasPiano: atlasPianoTools,
                     horizontalline: horizontallineTools,
-                    verticalline: verticallineTools
+                    verticalline: verticallineTools,
+                    mapView:mapViewTools
                 },
                 IsLevelHide: false,
                 isHoverShow:false

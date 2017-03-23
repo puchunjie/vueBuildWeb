@@ -89,6 +89,8 @@
     import detail from '../details/details.vue'
     import caseDetail from '../details/details.vue'
     import articleDetail from '../details/details.vue'
+    import mapView from '../map/mapView.vue'
+    import guestbook from '../guestbook/guestbook.vue'
     export default {
         name: 'drag',
         props: {
@@ -115,7 +117,9 @@
             verticalline,
             detail,
             caseDetail,
-            articleDetail
+            articleDetail,
+            mapView,
+            guestbook
         },
         computed: {
             ...mapGetters([
@@ -367,6 +371,7 @@
                                 }
                             });
                         } else {
+
                             // 这里是页面上现有模块拖拽处理
                             let dragModule = '#' + $(ui.helper[0]).attr("id");
                             // 如果在拖入通栏中找到这个拖动的模块，说明是在本通栏中的拖动，不做任何处理，位置跟新在commonEvebtInit.js的stop钩子中统一处理了
@@ -376,6 +381,7 @@
                                 // 这里是跨通栏拖动模块处理逻辑
                                 // 判断通栏是否为可拖入通栏1.普通通栏，2.开启编辑的公共通栏
                                 // 如果是系统通栏或者是没开启编辑的公共通栏就提示不能拖入
+                                
                                 if (_this.isSys) {
                                     _this.$message.error('系统通栏不能添加自定义模块！');
                                 } else if (_this.isPublic && _this.maskShow) {
@@ -443,6 +449,10 @@
                                         dragKey: toContIndex,
                                         moduleData: moduleData
                                     });
+                                    
+                                    if(moduleData.moduleName=='word'){
+                                        tinymce.remove("div.txt");
+                                    }
                                 }
                             }
                         }

@@ -21,6 +21,7 @@
     import leftBanner from './leftBanner.vue';
     import leftGraph from './leftGraph.vue';
     import columnview from './columnview.vue';
+    import leftSys from './leftSys.vue';
     export default {
         props: {
             moduleInfo: Object,
@@ -37,7 +38,8 @@
             columnview,
             leftLine,
             leftBanner,
-            leftGraph
+            leftGraph,
+            leftSys
         },
         data() {
             return {}

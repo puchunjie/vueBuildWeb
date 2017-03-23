@@ -69,10 +69,12 @@ export default {
     //页面设置
     [types.CLOSE_PAGE_SET](state) {
         state.pageSet.isShow = false;
+        state.pageSet.pageId='';
     },
-    [types.OPEN_PAGE_SET](state) {
+    [types.OPEN_PAGE_SET](state,payload) {
         base._closeAll(state);
         state.pageSet.isShow = true;
+        state.pageSet.pageId=payload.pageId
     },
     //网站管理
     [types.CLOSE_WEB_SET](state) {

@@ -1263,31 +1263,18 @@ table {
     display: none;
 }
 
-.page-views-content ul li:hover .page-edit {
-    background: #f1f3f2;
-    border-bottom: none;
-}
 
-.page-views-content ul li:hover .page-edit {
-    display: block;
-}
 
-.page-views-content ul li.active:hover .page-edit {
-    display: none;
-}
 
 .page-views-content ul li.active {
-    background: #42aeff;
-    color: #fff;
+    background: #42aeff!important;
+    color: #fff!important;
 }
 
 .page-views-content ul li.active a {
-    color: #fff;
+    color: #fff!important;
 }
 
-.page-views-content ul li.active .page-set {
-    display: block;
-}
 
 
 /*页面管理面板*/

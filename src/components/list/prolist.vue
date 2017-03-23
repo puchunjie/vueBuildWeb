@@ -18,12 +18,12 @@
         <!--:href="val.link"-->
          <a><img :src="val.pic" alt=""></a>
         </dt>
-        <dd v-show="module.type!='case'">{{val.price==null?'暂无定价':val.price}}</dd>
+        <!--<dd v-show="module.type!='case'">{{val.price==null?'暂无定价':val.price}}</dd>-->
         <dd class="prolistName" v-show="module.moduleSet.advancedSetting.selected.indexOf('主标题')!==-1"><a :href="val.link">{{val.name}}</a></dd>
-        <ul v-if="module.type=='product'" v-bind:style="{backgroundImage:(module.moduleSet.advancedSetting.selected.indexOf('评价')==-1 || module.moduleSet.advancedSetting.selected.indexOf('购物车')==-1) ? 'none' : ''}" v-show="module.moduleSet.advancedSetting.selected.indexOf('评价')!==-1 || module.moduleSet.advancedSetting.selected.indexOf('购物车')!==-1">
+        <!--<ul v-if="module.type=='product'" v-bind:style="{backgroundImage:(module.moduleSet.advancedSetting.selected.indexOf('评价')==-1 || module.moduleSet.advancedSetting.selected.indexOf('购物车')==-1) ? 'none' : ''}" v-show="module.moduleSet.advancedSetting.selected.indexOf('评价')!==-1 || module.moduleSet.advancedSetting.selected.indexOf('购物车')!==-1">
             <li v-show="module.moduleSet.advancedSetting.selected.indexOf('评价')!==-1"><span class="list">{{val.salenum}}人+</span>评价</li>
             <li class="prolist_li" v-show="module.moduleSet.advancedSetting.selected.indexOf('购物车')!==-1"><a href="#">购物车</a></li>
-        </ul>
+        </ul>-->
         <div class="clearfix"></div>
     </dl>
     <div class="clearfix"></div>

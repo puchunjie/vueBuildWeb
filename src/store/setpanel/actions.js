@@ -36,8 +36,8 @@ export const closeAddPagePanel = ({ commit }) => {
     commit(types.CLOSE_ADD_PAGE_PANE);
 }
 //页面设置
-export const openPageSet = ({ commit }) => {
-    commit(types.OPEN_PAGE_SET);
+export const openPageSet = ({ commit },payload) => {
+    commit(types.OPEN_PAGE_SET,payload);
 }
 export const closePageSet = ({ commit }) => {
     commit(types.CLOSE_PAGE_SET);

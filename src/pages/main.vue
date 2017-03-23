@@ -57,6 +57,7 @@
     import {
         hotKeysInit
     } from '../methods/common/hotKeysInit'
+
     import imgUpload from '../components/publicmodules/imgupload.vue';
     import drag from 'components/drag/drag.vue';
     import toolBar from 'components/publicmodules/toolbar.vue';
@@ -67,6 +68,7 @@
 
 
     /*==================模块设置组件======================*/
+    import mapViewSet from 'components/moduleSets/mapViewSet.vue';
     import pictureSet from 'components/moduleSets/pictureSet.vue';
     import blankSet from 'components/moduleSets/blankSet.vue';
     import wordSet from 'components/moduleSets/wordSet.vue';
@@ -87,6 +89,7 @@
     import floatContainer from 'components/floatcontainer/floatcontainer.vue'
     import system from 'components/system/system.vue'
     import backToTopSet from 'components/publicmodules/spareParts/backToTopSet.vue';
+    import guestbookSet from 'components/moduleSets/guestbookSet.vue';
     /*====================================================*/
 
     export default {
@@ -118,7 +121,9 @@
             settingPane,
             bannerPositionSet,
             backToTopSet,
-            system
+            system,
+            mapViewSet,
+            guestbookSet
         },
         data() {
             return {

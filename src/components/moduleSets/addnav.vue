@@ -117,7 +117,7 @@
                     </el-radio-group>    
                 </li>
                 <li class="clearfix">
-                    <label class="lab-title"><i class="red">*</i>指向页面</label> 
+                    <label class="lab-title"><!--<i class="red">*</i>-->指向页面</label>
                     <el-select v-model="navdata.link" placeholder="请选择" class="selbox" v-show="choselinkType!='custom'">
                             <el-option
                               v-for="item in linkList"
@@ -296,10 +296,10 @@
                         } 
                     }) 
                 }else{
-                    if(_this.navdata.link==''){
+                    /*if(_this.navdata.link==''){
                          _this.$message.error("指向页面不能为空！");
                          return;
-                    }
+                    }*/
                     let json={
                         "siteid":_this.websiteInfo.siteid,
                         "nid":_this.getModuleData.nid,    //导航列id

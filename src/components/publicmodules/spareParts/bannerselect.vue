@@ -204,6 +204,8 @@
         padding-bottom: 10%;
         background-size: contain;
         cursor: pointer;
+        box-sizing: border-box;
+        border: 2px solid #ffffff;
     }
     
     .banner-list li.active {

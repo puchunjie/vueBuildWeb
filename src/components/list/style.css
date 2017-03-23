@@ -77,7 +77,7 @@
     display: block;
     height: 43px;
     line-height: 43px;
-    border-width: 1px 0;
+    border-bottom: 1px solid #ddd;
     font-size: 14px;
     color: #343434;
     text-indent: 17px;

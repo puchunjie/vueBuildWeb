@@ -1,7 +1,7 @@
 module.exports = [{
         name: "数据",
         type: "edit",
-        icon: "icon-shezhi",
+        icon: "icon-iconset0358",
         fun: function(_this) {
             _this.openModuleSet('dataEdit')
         }

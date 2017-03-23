@@ -298,6 +298,5 @@
     
     .select-list-content li>i {
         float: right;
-        font-size: 5px;
     }
 </style>

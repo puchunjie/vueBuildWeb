@@ -17,14 +17,14 @@
         <web-set v-if="webSet.isShow"></web-set>
         <div class="fl-bar fl">
             <a @click="rulerToggle">标尺</a>
-            <!-- <a @click="preState"><i class="iconfont">&#xe61c;</i>撤销</a>
-        <a @click="postState"><i class="iconfont">&#xe61d;</i>恢复</a> -->
+            <a @click="preState"><i class="iconfont">&#xe61c;</i>撤销</a>
+            <a @click="postState"><i class="iconfont">&#xe61d;</i>恢复</a>
         </div>
         <div class="fl-bar fl">
             <a @click="savePageInfo">保存</a>
             <a :href="previewUrl" target="_blank">预览</a>
             <a @click="doPublish" v-if="isUserMake">发布</a>
-            <a @click="showBackups" v-if="isUserMake">还原备份</a>
+            <!-- <a @click="showBackups" v-if="isUserMake">还原备份</a> -->
             <el-dialog title="备份列表" v-model="backupListShow">
                 <el-button type="primary" :loading="loading" class="backupBtn" size="small" @click="backup">{{backupText}}</el-button>
                 <el-table :data="backupList" height="350">
@@ -58,6 +58,7 @@
 //接口url
 import {
     savePage,
+    setPublish,
     publishSite,
     getPublishList,
     rollBack
@@ -97,7 +98,7 @@ export default {
         //预览
         previewUrl() {
             let siteid = this.$route.params.siteid;
-            let pageid = this.$route.params.pageid;
+            let pageid = this.$route.params.pageid === this.pageInfo.pageid ? this.$route.params.pageid :this.pageInfo.pageid;
             if (this.$route.params.siteMode === 'templateMake') {
                 return '/site/preview/template/' + pageid;
             } else if (this.$route.params.siteMode === 'bannerMake') {
@@ -118,6 +119,7 @@ export default {
         ]),
         savePageInfo() {
             let _this = this;
+            this.setLoading();
             savePage(this, {
                 pageid: this.$route.params.pageid,
                 memberid: this.$route.params.memberid,
@@ -191,25 +193,59 @@ export default {
             getPublishList(this, {
                 siteid: this.websiteInfo.siteid
             }, function(response) {
-                _this.backupList = response.list;
+                _this.backupList = response.list || [];
+            });
+        },
+        getList(){
+            let _this=this;
+            getPublishList(_this, {
+                siteid: _this.websiteInfo.siteid
+            }, function(response2) {
+                if(response2.err_code==0){
+                    _this.backupList = response2.list || []; 
+                }                     
             });
         },
         backup() {
-            this.loading = true;
-            this.backupText = "备份中";
-            /*setBackup(this, {
+            let _this=this;
+            _this.loading = true;
+            _this.backupText = "备份中";
+            setPublish(this, {
                 siteid: this.websiteInfo.siteid
             }, function(response) {
-                this.loading=false;
-                this.backupText="备份";
-            });*/
+                if(response.err_code==0){
+                    _this.loading=false;
+                    _this.backupText="备份";
+                    _this.$message({
+                        message: '备份成功',
+                        type: 'success'
+                    });
+                    _this.getList();
+                }else{
+                    _this.loading=false;
+                    _this.backupText="备份";
+                    _this.$message.error(response.msg);
+                }
+                
+            });
         },
         // 还原版本
         handleEdit(index, row) {
+            let _this=this;
             rollBack(this, {
                 siteid: this.websiteInfo.siteid,
                 version: row.version
             }, function(response) {
+                if(response.err_code==0){
+                    _this.$message({
+                        message: '还原成功',
+                        type: 'success',
+                        duration: 500,
+                        onClose: function() {
+                            location.reload();
+                        }
+                    });
+                }
                 console.log(response)
             });
         },

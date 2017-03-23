@@ -49,18 +49,6 @@
                         </el-form-item>
                     </el-form>  
                 </el-tab-pane>
-                <el-tab-pane label="插件管理">
-                    <el-form label-width="120px" label-position="right" :rules="rules">
-                        <el-form-item label="返回顶部插件">
-                            <el-switch
-                            v-model="backTop"
-                            on-color="#13ce66"
-                            off-color="#ff4949" @change="switchChange">
-                            </el-switch>
-                            <span class="shortcutIcon-tips backTopEdit" v-if="backTop" @click="backTopEdit">[编辑]</span>
-                        </el-form-item>
-                    </el-form>
-                </el-tab-pane>
             </el-tabs>
             <div class="webSet-button">
                 <el-button type="primary" @click="setWebData" :disabled="form.name==''?true:false">保存</el-button>
@@ -120,29 +108,6 @@
                 'openModuleSet',
                 'switchSelectModuleKey'
             ]),
-            switchChange: function() {
-                //this.backToTOP();
-                var _this = this
-                _this.switchSelectModuleKey({
-                    keys: {
-                        dragKey: 0,
-                        slotModuleKey: 0,
-                    },
-                    container: 'floatModules'
-                });
-                _this.modifyModuleAdvanced({
-                    attributetarget: {
-                        'isShow': _this.backTop
-                    },
-                    container: 'floatModules'
-                });
-                let module = this.pageInfo.floatModules[0].slotModeules[0];
-                cssJson.toStyleHEAD(module, true);
-            },
-            backTopEdit:function(){
-                    this.closeWebSet();
-                    this.openModuleSet('backToTopSet')
-            },
             setWebData() {
                 let _this = this;
                 let setData = {

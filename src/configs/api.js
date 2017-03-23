@@ -4,6 +4,7 @@ export default {
 
     // 发布、备份列表、退回版本
     publish: domain + "/site/Website/release", //站点发布
+    backup:domain + "/site/Website/backup", //版本备份
     publishList: domain + "/site/Website/backuplist", //版本列表
     rollBack: domain + "/site/Website/rollback", //回滚版本
 
@@ -155,6 +156,10 @@ export default {
 
     //添加数据源分类
     addClassification: domain + "/site/TemplateData/add", //添加分类-------只有后台制作有添加！！！！
+    //删除数据源分类
+    removeClassification: domain + "/site/TemplateData/del",
+    //修改数据源分类
+    editClassification: domain + "/site/TemplateData/edit",
 
     /*******通栏模板接口********/
     //获取通栏行业分类
@@ -164,6 +169,9 @@ export default {
     //通栏模板列表
     columnTemList: domain + "/site/BuildColumn/list",
 
+    //留言列表
+    GuestbookList: domain + "/site/Guestbook/list",
+    
 
 
 }

@@ -1,12 +1,14 @@
 <template>
-    <a class="bst-module draggle-module picture-module smartMenu" :id="module.moduleId" :class="module.moduleId + 'styles'" @mousemove="eventInit">
-        <span class="move" :class="coverClass">
+    <a class="bst-module draggle-module picture-module smartMenu bst-move" :id="module.moduleId" 
+    :class="module.moduleId + 'styles'"  @mousemove="eventInit">
+        <span  :class="coverClass">
             <div class="picBox">
                 <img :src="module.moduleSet.advancedSetting.imgUrl" class="picture">
                 <img :src="module.moduleSet.advancedSetting.imgUrl_1" class="coverPic" v-if="isCover">
                 <i class="lines" v-if="covers"></i>
             </div>
         </span>
+        <div :class="{'fz1':baseData.width<10,'fz2':baseData.height<10}" v-if="baseData.width<10 || baseData.height<10"></div>
     </a>
 </template>
 <script>
@@ -50,6 +52,12 @@ export default {
                 src:image.src,
                 realWidth: realWidth,
                 realHeight: realHeight
+            }
+        },
+        baseData(){
+            return {
+                width:parseInt(this.module.$styles.container.width),
+                height:parseInt(this.module.$styles.container.height)
             }
         }
     },
@@ -102,7 +110,7 @@ export default {
 .picture-module {
     position: absolute
 }
-.picture-module .move{
+.picture-module>span{
     width: 100%;
     height: 100%;
     display: block;
@@ -134,5 +142,26 @@ export default {
 }
 .picture-module .cover:hover .picture {
     display: none;
+}
+
+.picture-module .fz1{
+    width: 10px;
+    height: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top:0;
+    margin-left: -5px;
+}
+.picture-module .fz2{
+    width: 100%;
+    height: 10px;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top:50%;
+    margin-top: -5px;
 }
 </style>

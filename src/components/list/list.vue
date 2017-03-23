@@ -16,14 +16,15 @@
 
     <button @click="showSelet" v-if="isTemplate" style="float:right">设置数据源</button>
 
-    <data-souse :dataSetIshide="dataSetIshide" :module="module" v-if="dataSetIshide.is"></data-souse>
+    <!--<data-souse :dataSetIshide="dataSetIshide" :module="module" v-if="dataSetIshide.is"></data-souse>-->
+    <data-sou :dataSetIshide="dataSetIshide" :module="module" v-if="dataSetIshide.is"></data-sou>
     <div class="clearfix"></div>
     </div>
 </template>
 
 
 
-<script>
+<script type="text/ecmascript-6">
     /*==================模块设置组件======================*/
     import crumbs from './crumbs.vue';
     import search from './search.vue';
@@ -37,6 +38,7 @@
     import prolistarticle from './prolistarticle.vue';
     import pagination from './pagination.vue';
     import dataSouse from './datasouse.vue'
+    import dataSou from './datasouses.vue';
 
     import cssJson from 'cssJson';
 
@@ -65,7 +67,8 @@
             prolistcase,
             prolistarticle,
             pagination,
-            dataSouse
+            dataSouse,
+            dataSou
         },
         props: {
             module: Object,
@@ -157,6 +160,7 @@
                 source: _this.module.type,
                 siteid: _this.$route.params.siteid,
                 page: 1,
+                cateid:_this.module.moduleSet.advancedSetting.value.split("|")[0],
                 page_size: productNum
             }, function(response) {
                 if (response.err_code === 0) {

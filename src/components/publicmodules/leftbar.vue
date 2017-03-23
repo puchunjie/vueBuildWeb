@@ -98,15 +98,17 @@
                     this.activeModule.index = index;
                     this.activeModule.bar = bar;
                     if (bar.name === '文字') {
-                        this.activeName = "leftWord"
+                        this.activeName = "leftWord";
                     } else if (bar.name === '导航') {
-                        this.activeName = "leftMenu"
+                        this.activeName = "leftMenu";
                     } else if (bar.name === '图形') {
-                        this.activeName = "leftGraph"
+                        this.activeName = "leftGraph";
                     } else if (bar.name === '横幅') {
-                        this.activeName = "leftBanner"
+                        this.activeName = "leftBanner";
+                    }else if (bar.name === '系统') {
+                        this.activeName = "leftSys";
                     }else {
-                        this.activeName = "leftNormal"
+                        this.activeName = "leftNormal";
                     }
                     this.openModuleView();
                 }

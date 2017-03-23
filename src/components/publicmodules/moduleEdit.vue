@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <div class="bst-module-edit-input">
-                        <el-input placeholder="手动输入链接" v-model="el.href" size="small">
+                        <el-input placeholder="链接" :disabled="true" v-model="el.href" size="small">
                             <el-button slot="append" @click="linkPane(index)" type="success">选择链接</el-button>
                         </el-input>
                         <p style="height:20px;margin:0;padding:0"></p>

@@ -43,7 +43,7 @@
             let _this = this;
             getPageInfo(_this, {
                 siteid: _this.$route.params.siteid,
-                pageid: _this.$route.params.pageid
+                pageid: _this.pageSet.pageId
             }, function(response) {
                 if (response.err_code === 0) {
                     _this.form = response.info;
@@ -66,7 +66,7 @@
                 let _this = this;
                 let setData = {
                     siteid: _this.$route.params.siteid,
-                    pageid: _this.$route.params.pageid,
+                    pageid: _this.pageSet.pageId,
                     name: _this.form.name,
                     seoTitle: _this.form.seoTitle,
                     seoKeyword: _this.form.seoKeyword,

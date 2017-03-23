@@ -9,6 +9,7 @@
 
             <el-breadcrumb separator=">>">
             <el-breadcrumb-item :to="{ path: paths }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>{{detailTitle}}</el-breadcrumb-item>
             <el-breadcrumb-item v-show="level1!==''">{{level1}}</el-breadcrumb-item>
             <el-breadcrumb-item v-show="module.moduleSet.advancedSetting.crumbsMenu2IsShow">{{level2}}</el-breadcrumb-item>
             </el-breadcrumb>
@@ -24,7 +25,8 @@
     } from 'vuex';
     //接口url
     import {
-        getPageList
+        getPageList,
+        getPageInfo
     } from 'ajaxAPI';
     export default {
         name: 'crumbs',
@@ -59,7 +61,8 @@
                 pList: [],
                 pageCount: Number,
                 paths:String,
-                mainId:Number
+                mainId:Number,
+                detailTitle:String
             }
         },
         created() {
@@ -68,13 +71,21 @@
                 siteid: this.$route.params.siteid,
                 field: ['unSysPage']
             }, function(response) {
-                console.log(response)
+                //console.log(response)
                 $(response.unSysPage).each(function(index){
                      if(this.isMain){
                             _this.mainId=this.id
                             _this.paths="/build/page/"+_this.$route.params.siteMode+"-"+_this.$route.params.siteid+"-"+_this.$route.params.memberid+"-"+_this.mainId
                      }
                 })
+            })
+            getPageInfo(_this, {
+                siteid: _this.$route.params.siteid,
+                pageid: _this.$route.params.pageid
+            }, function (response) {
+                if (response.err_code === 0) {
+                    _this.detailTitle = response.info.name;
+                }
             })
         },
         watch:{

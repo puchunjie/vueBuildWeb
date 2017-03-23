@@ -24,7 +24,20 @@ export function publishSite(vm, body, cb) {
         console.log('error apiName');
     }
 }
-
+//备份
+export function setPublish(vm, body, cb) {
+    let siteMode = vm.$route.params.siteMode;
+    let Url = apiConfig['backup'];
+    if (Url) {
+        Vue.http.post(Url, body).then((response) => {
+            cb(response.body)
+        }, (response) => {
+            vm.$message.error(response.data.msg)
+        });
+    } else {
+        console.log('error apiName');
+    }
+}
 export function getPublishList(vm, body, cb) {
     let siteMode = vm.$route.params.siteMode;
     let Url = apiConfig['publishList'];
@@ -678,7 +691,32 @@ export function addClassification(vm, body, cb) {
         console.log('error apiName');
     }
 }
-
+//删除分类
+export function removeClassification(vm, body, cb) {
+    let Url = apiConfig['removeClassification'];
+    if (Url) {
+        Vue.http.post(Url, body).then((response) => {
+            cb(response.body)
+        }, (response) => {
+            vm.$message.error(response.data.msg)
+        });
+    } else {
+        console.log('error apiName');
+    }
+}
+//修改数据源分类
+export function editClassification(vm, body, cb) {
+    let Url = apiConfig['editClassification'];
+    if (Url) {
+        Vue.http.post(Url, body).then((response) => {
+            cb(response.body)
+        }, (response) => {
+            vm.$message.error(response.data.msg)
+        });
+    } else {
+        console.log('error apiName');
+    }
+}
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝产品，案例，文章 获取列表数据＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 //获取产品列表信息
 export function getItemList(vm, body, cb) {
@@ -758,6 +796,22 @@ export function getWebSetting(vm, body, cb) {
 export function saveWebSetting(vm, body, cb) {
     let siteMode = vm.$route.params.siteMode;
     let Url = apiConfig[siteMode + 'SaveWholeSetting'];
+    if (Url) {
+        Vue.http.post(Url, body).then((response) => {
+            cb(response.body)
+        }, (response) => {
+            vm.$message.error(response.data.msg)
+        });
+    } else {
+        console.log('error apiName');
+    }
+}
+
+
+/*********获取留言列表************/
+export function getGuestbookList(vm, body, cb) {
+    let siteMode = vm.$route.params.siteMode;
+    let Url = apiConfig['GuestbookList'];
     if (Url) {
         Vue.http.post(Url, body).then((response) => {
             cb(response.body)

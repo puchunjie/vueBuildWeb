@@ -11,11 +11,11 @@
                         </li>
                         <li class="atlas-set-part clearfix" v-show="ads.autoPlay">
                             <span class="atlas-set-title">展示时间</span>
-                            <el-input-number v-model="ads.interTime" :min="10" :step="100" @change="onChange"></el-input-number>
+                            <el-input-number v-model="ads.interTime" :min="1000" :max="5000" :step="100" @change="onChange"></el-input-number>
                         </li>
                         <li class="atlas-set-part clearfix">
                             <span class="atlas-set-title">切换速度</span>
-                            <el-input-number v-model="ads.delayTime" :min="10" :step="50" @change="onChange"></el-input-number>
+                            <el-input-number v-model="ads.delayTime" :min="10" :max="1000" :step="50" @change="onChange"></el-input-number>
                         </li>
                         <li class="atlas-set-part clearfix" v-if="!isMarquee">
                             <span class="atlas-set-title">滚动个数</span>

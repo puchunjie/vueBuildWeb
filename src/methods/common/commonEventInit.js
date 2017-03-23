@@ -199,7 +199,6 @@ export function commonEventInit(obj) {
 function clickActions(e, obj) {
     let left = e.pageX + "px";
     let top = e.pageY + "px";
-
     obj.vm.switchSelectModuleKey({
         keys: {
             dragKey: obj.vm.dragIndex,
@@ -207,6 +206,13 @@ function clickActions(e, obj) {
         },
         container: obj.vm.container
     })
+    //当模块高度小于100时toolbar重新定位
+    if(parseInt(obj.vm.getModuleData.$styles["container"]["height"])<=100){
+        let mL=$('#'+obj.vm.getModuleData.moduleId).offset().left;
+        let mT=$('#'+obj.vm.getModuleData.moduleId).offset().top;
+        left=(mL-10)+'px';
+        top=(mT+parseInt(obj.vm.getModuleData.$styles["container"]["height"])+5)+'px';
+    }
     let payload = {
         position: {
             left: left,

@@ -40,11 +40,11 @@
                                 <div class="bannertitle">
                                     <span class="column-title">{{ item.name }}</span>
                                 </div>
-                                <b class="fr">
-                                    <i class="icon icon-public" @click="openPubSet(index)" v-if="item.type !== 'system'"></i>
-                                    <i class="icon icon-copy" @click="openCopySet(index)" v-if="item.type !== 'system'"></i>
-                                    <i class="icon icon-delete"  @click="" v-if="item.type !== 'system'"></i>
-                                </b>
+                                <!--<b class="fr">-->
+                                    <!--<i class="icon icon-public" @click="openPubSet(index)" v-if="item.type !== 'system'"></i>-->
+                                    <!--<i class="icon icon-copy" @click="openCopySet(index)" v-if="item.type !== 'system'"></i>-->
+                                    <!--<i class="icon icon-delete"  @click="" v-if="item.type !== 'system'"></i>-->
+                                <!--</b>-->
                             </li>
                         </ul>
                     </div> 
@@ -54,7 +54,7 @@
 </template>
 
 
-<script>
+<script type="text/ecmascript-6">
     import {
         mapGetters,
         mapActions

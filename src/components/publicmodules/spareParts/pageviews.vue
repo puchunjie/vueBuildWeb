@@ -9,7 +9,7 @@
                         <div class="page-set">
                             <a :href="previewUrl + item.id" target="_blank">预览</a>
                             <span @click="copyP(item.id)">复制</span>
-                            <span @click="setP">设置</span>
+                            <span @click="setP(item.id)">设置</span>
                             <span v-if="!item.isMain" @click="deleteP(item,index,'privateList')">删除</span>
                         </div>
                     </li>
@@ -23,7 +23,7 @@
                         <div class="page-set">
                             <a :href="previewUrl + item.id" target="_blank">预览</a>
                             <span @click="copyP(item.id)">复制</span>
-                            <span @click="setP">设置</span>
+                            <span @click="setP(item.id)">设置</span>
                             <span v-if="!item.isMain" @click="deleteP(item,index,'privateList')">删除</span>
                         </div>
                     </li>
@@ -33,7 +33,7 @@
     </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
     import {
         mapGetters,
         mapActions
@@ -138,7 +138,7 @@
                                     getPageData(_this, {
                                         pageid: el.id
                                     }, function(response1) {
-                                        _this.$router.push({
+                                        _this.$router.replace({
                                             name: 'main',
                                             params: {
                                                 siteMode: _this.$route.params.siteMode,
@@ -166,8 +166,8 @@
 
             },
             //设置页面
-            setP() {
-                this.openPageSet();
+            setP(id) {
+                this.openPageSet({pageId:id});
             }
         },
         data() {
@@ -194,16 +194,16 @@
         border: 1px solid #ddd;
         padding: 10px;
     }
-    
+
     .page-views-content .el-tabs {
         width: 100%;
     }
-    
+
     .page-views-content .el-tabs__content {
         height: 300px;
         overflow-x: hidden!important;
     }
-    
+
     .page-views-content ul li {
         color: #666666;
         padding: 0 16px;
@@ -212,30 +212,23 @@
         position: relative;
         border-bottom: 1px solid #eeeeee;
     }
-    
+
     .page-views-content ul li .page-set {
         display: none;
         position: absolute;
         right: 10px;
         top: 0;
     }
-    
+
     .page-views-content ul li a {
         color: #666666;
     }
-    /*  .page-views-content ul li:hover {
+      .page-views-content ul li:hover {
        background: #f1f3f2;
        border-bottom: none;
    }
-   
-   .page-views-content ul li .page-set {
-       display: none;
-       position: absolute;
-       right: 0;
-       top: 0;
-   }
-   
-   .page-views-content ul li:hover .page-set {
+
+   .page-views-content ul li:hover .page-set,.page-views-content ul li.active .page-set {
        display: block;
-   } */
+   }
 </style>

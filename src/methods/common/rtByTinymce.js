@@ -7,9 +7,17 @@ export function rtByTinymce(vm, contentElement) {
     $('#' + vm.module.moduleId).removeClass("ui-resizable-autohide");
     $('#' + vm.module.moduleId).removeClass("bst-move");
     let editor = elementHasRtInstants(contentElement);
+
     if(vm.module.moduleSet.advancedSetting.hasBar){
         $("#" + vm.module.moduleId).find(".wordContent").mCustomScrollbar('destroy')
     }
+    let oldStr=vm.module.moduleSet.advancedSetting.wordDetails;
+    let wordInit=vm.module.moduleSet.advancedSetting.onaji;
+    let eInit=vm.module.moduleSet.advancedSetting.init;
+    let eMp=vm.module.moduleSet.advancedSetting.emp;
+    //let fSize=vm.module.moduleSet.advancedSetting.fontSize;
+    //vm.module.moduleSet.advancedSetting.wordDetails='<p style="font-size:30px;" data-mce-style="font-size:30px;"><br></p>'
+    //console.log($(wordInit))
     if(!editor) {
         contentElement = '#' + contentElement;
         tinymce.init({
@@ -40,8 +48,8 @@ export function rtByTinymce(vm, contentElement) {
                 editor.on('blur', function(e) {
                     let moduleData = vm.module;
                     $('#' + vm.module.moduleId).find(".wordContent").removeClass("nohide");
-                    if($("#setlink").length==0){
-                        if(tinymce.get(contentElement.replace('#', '')).getContent() ==''){
+                    //if($("#setlink").length==0){
+                        if($.trim(tinymce.get(contentElement.replace('#', '')).getContent()) =='' || (eMp && tinymce.get(contentElement.replace('#', '')).getContent()==eMp)){
                             $(contentElement).html(moduleData.moduleSet.advancedSetting.onaji)
                             moduleData.moduleSet.advancedSetting.wordDetails=moduleData.moduleSet.advancedSetting.onaji;
                         }else{
@@ -50,7 +58,7 @@ export function rtByTinymce(vm, contentElement) {
                         editor.hide();
                         document.selection && document.selection.empty && ( document.selection.empty(), 1)
 || window.getSelection && window.getSelection().removeAllRanges();
-                    }
+                    //}
                     vm.modifyModuleDataByIndex({
                         dragIndex:vm.dragIndex,
                         slotModuleIndex:vm.slotModuleIndex,
@@ -80,15 +88,34 @@ export function rtByTinymce(vm, contentElement) {
             toolbar: "bold italic underline | alignleft aligncenter alignright alignjustify | forecolor backcolor  | formatselect fontselect fontsizeselect  letterspacingselect | code ",
             language: 'zh_CN',
             min_height: "100%",
+            //height : 300,
+            //width : 300,
             autofocus: true,
             //lineheight_formats: "12px 14px 16px 18px 20px 22px 24px 26px 36px 45px 50px 60px",
             letterspacing_formats: "1px 2px 3px 4px 5px 6px 7px 8px 9px 10px 12px 14px 16px 18px 20px 22px 24px 26px 36px 45px 50px 60px",
             init_instance_callback: function () {
+                if(oldStr==wordInit && eInit){
+                    tinymce.get(contentElement.replace('#', '')).getBody().innerHTML=eInit;
+                }
+                /*if(oldStr==wordInit && fSize){
+                    tinymce.get(contentElement.replace('#', '')).getBody().innerHTML='<p style="font-size:'+fSize+'px;" data-mce-style="font-size:'+fSize+'px;"><br></p>';
+                }else if(oldStr==wordInit){
+                    tinymce.get(contentElement.replace('#', '')).getBody().innerHTML='<h1><br></h1>';
+                }*/
                 tinymce.activeEditor.focus();
             }
         });
     } else {
         editor.show();
+        let str='<p style="font-size: 30px;" data-mce-style="font-size: 30px;"><br></p>';
+        /*if(oldStr==wordInit && fSize){
+            tinymce.get(contentElement.replace('#', '')).getBody().innerHTML='<p style="font-size:'+fSize+'px;" data-mce-style="font-size:'+fSize+'px;"><br></p>';
+        }else if(oldStr==wordInit){
+            tinymce.get(contentElement.replace('#', '')).getBody().innerHTML='<h1><br></h1>';
+        }*/
+        if(oldStr==wordInit && eInit){
+           tinymce.get(contentElement.replace('#', '')).getBody().innerHTML=eInit;
+        }
         $('#' + vm.module.moduleId).find(".txt").focus()
     }
 }

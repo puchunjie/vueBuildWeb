@@ -33,7 +33,8 @@
     } from 'ajaxAPI';
 
     import system from '../system/system.vue';
-    import service from '../plugin/service/service.vue';
+    import backToTop from '../backToTop/backToTop.vue';
+    // import service from '../plugin/service/service.vue';
     export default {
         name: 'floatModules',
         props: {
@@ -43,7 +44,8 @@
         },
         components: {
             system,
-            service
+            backToTop,
+            //service
         },
         computed: {
             ...mapGetters([
